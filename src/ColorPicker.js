@@ -19,6 +19,7 @@ const propTypes = {
     label: PropTypes.string,
     className: PropTypes.string,
     required: PropTypes.bool,
+    autoCalculate: PropTypes.func,
     onChange: PropTypes.func,
 };
 const defaultProps = {
@@ -26,6 +27,8 @@ const defaultProps = {
     value: "",
     label: "",
     required: false,
+    autoCalculate: false,
+    autoCalculate: () => {},
     onChange: () => {}
 };
 
@@ -67,10 +70,14 @@ class ColorPicker extends Component {
 
     // 点击弹框确定按钮
     submit = () => {
+        let { autoCalculate } = this.props;
         this.setState({
             formValue: this.state.selectedHexValue,
             displayColorPicker: false
         })
+        if(autoCalculate){
+            autoCalculate(this.state.selectedColor,this.state.selectedScale);
+        }
     }
 
     // 下拉框值更改
@@ -83,11 +90,10 @@ class ColorPicker extends Component {
         })
     }; 
 
-    // 选择色阶
+    // 选择色度
     handleSelectScale = (value,e) => {
         let rgb = e.currentTarget.currentStyle.backgroundColor;
         let hex = this.colorRGBtoHex(rgb);
-        console.log(rgb,hex);
         this.setState({
             selectedScale: value,
             selectedRgbValue: rgb,
@@ -143,9 +149,13 @@ class ColorPicker extends Component {
         if (onChange) {
             onChange(value);
         }
+        this.setState({
+            formValue: value
+        })
     }
 
     render(){
+        let self = this;
         const {
             clsPrefix,
             onChange,
@@ -182,23 +192,27 @@ class ColorPicker extends Component {
                     </Label>
                     <FormControl 
                         placeholder='请输入十六进制色值' 
-                        ref={(el) => this.input = el }
                         value={formValue} 
                         onChange={this.handleChange}
-                        {...getFieldProps('hexadecimal', {
-                            initialValue: formValue,
-                            validateTrigger: 'onBlur',
-                            rules: rules,
-                        }) }
+                        // {...getFieldProps('hexadecimal', {
+                        //     initialValue: formValue,
+                        //     validateTrigger: 'onBlur',
+                        //     rules: rules,
+                        //     onChange(value) {
+                        //         if (onChange) {
+                        //             onChange(value);
+                        //         }
+                        //     }
+                        // }) }
                     />
                     <div 
                         className={`${clsPrefix}-form-color-demo bg-${selectedColor}-${selectedScale}`} 
                         onClick={ this.handleClick }>
                     </div>
-                    <span className='error'>
-                        {getFieldError('hexadecimal')}
-                    </span>
                 </FormItem>
+                <div className='error'>
+                    {getFieldError('hexadecimal')}
+                </div>
                 <Modal
                 width = '800'
                 className={`${clsPrefix}-modal`}

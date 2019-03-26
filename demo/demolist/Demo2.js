@@ -7,7 +7,7 @@
 import React, { Component } from 'react';
 import ColorPicker from '../../src';
 
-class Demo1 extends Component {
+class Demo2 extends Component {
     state = {
         value : "#E14C46"
     }
@@ -30,4 +30,4 @@ class Demo1 extends Component {
         )
     }
 }
-export default Demo1
+export default Demo2

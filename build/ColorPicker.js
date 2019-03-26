@@ -4,7 +4,7 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+var _defaultProps;
 
 var _react = require('react');
 
@@ -64,6 +64,8 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : _defaults(subClass, superClass); }
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 var FormItem = _beeForm2["default"].FormItem;
 var Option = _beeSelect2["default"].Option;
 
@@ -73,15 +75,16 @@ var propTypes = {
     label: _propTypes2["default"].string,
     className: _propTypes2["default"].string,
     required: _propTypes2["default"].bool,
+    autoCalculate: _propTypes2["default"].func,
     onChange: _propTypes2["default"].func
 };
-var defaultProps = {
+var defaultProps = (_defaultProps = {
     clsPrefix: "u-colorpicker",
     value: "",
     label: "",
     required: false,
-    onChange: function onChange() {}
-};
+    autoCalculate: false
+}, _defineProperty(_defaultProps, 'autoCalculate', function autoCalculate() {}), _defineProperty(_defaultProps, 'onChange', function onChange() {}), _defaultProps);
 
 var ColorPicker = function (_Component) {
     _inherits(ColorPicker, _Component);
@@ -100,10 +103,15 @@ var ColorPicker = function (_Component) {
         };
 
         _this.submit = function () {
+            var autoCalculate = _this.props.autoCalculate;
+
             _this.setState({
                 formValue: _this.state.selectedHexValue,
                 displayColorPicker: false
             });
+            if (autoCalculate) {
+                autoCalculate(_this.state.selectedColor, _this.state.selectedScale);
+            }
         };
 
         _this.handleSelectChange = function (value) {
@@ -118,7 +126,6 @@ var ColorPicker = function (_Component) {
         _this.handleSelectScale = function (value, e) {
             var rgb = e.currentTarget.currentStyle.backgroundColor;
             var hex = _this.colorRGBtoHex(rgb);
-            console.log(rgb, hex);
             _this.setState({
                 selectedScale: value,
                 selectedRgbValue: rgb,
@@ -173,6 +180,9 @@ var ColorPicker = function (_Component) {
             if (onChange) {
                 onChange(value);
             }
+            _this.setState({
+                formValue: value
+            });
         };
 
         var initValue = "";
@@ -211,7 +221,7 @@ var ColorPicker = function (_Component) {
     // 下拉框值更改
 
 
-    // 选择色阶
+    // 选择色度
 
 
     // 渲染下拉框选项
@@ -234,7 +244,7 @@ var ColorPicker = function (_Component) {
 
 
     ColorPicker.prototype.render = function render() {
-        var _this2 = this;
+        var self = this;
 
         var _props = this.props,
             clsPrefix = _props.clsPrefix,
@@ -277,26 +287,29 @@ var ColorPicker = function (_Component) {
                     required ? _react2["default"].createElement(_beeIcon2["default"], { type: 'uf-mi', className: 'mast' }) : "",
                     label
                 ),
-                _react2["default"].createElement(_beeFormControl2["default"], _extends({
+                _react2["default"].createElement(_beeFormControl2["default"], {
                     placeholder: '\u8BF7\u8F93\u5165\u5341\u516D\u8FDB\u5236\u8272\u503C',
-                    ref: function ref(el) {
-                        return _this2.input = el;
-                    },
                     value: formValue,
                     onChange: this.handleChange
-                }, getFieldProps('hexadecimal', {
-                    initialValue: formValue,
-                    validateTrigger: 'onBlur',
-                    rules: rules
-                }))),
+                    // {...getFieldProps('hexadecimal', {
+                    //     initialValue: formValue,
+                    //     validateTrigger: 'onBlur',
+                    //     rules: rules,
+                    //     onChange(value) {
+                    //         if (onChange) {
+                    //             onChange(value);
+                    //         }
+                    //     }
+                    // }) }
+                }),
                 _react2["default"].createElement('div', {
                     className: clsPrefix + '-form-color-demo bg-' + selectedColor + '-' + selectedScale,
-                    onClick: this.handleClick }),
-                _react2["default"].createElement(
-                    'span',
-                    { className: 'error' },
-                    getFieldError('hexadecimal')
-                )
+                    onClick: this.handleClick })
+            ),
+            _react2["default"].createElement(
+                'div',
+                { className: 'error' },
+                getFieldError('hexadecimal')
             ),
             _react2["default"].createElement(
                 _beeModal2["default"],

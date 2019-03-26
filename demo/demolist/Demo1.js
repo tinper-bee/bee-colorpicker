@@ -12,10 +12,10 @@ class Demo1 extends Component {
         value : "#E14C46"
     }
 
-    handleChange = (value) => {
-        console.log(value);
+    handleChange = (v) => {
+        console.log(v);
         this.setState({
-            value: value
+            value: v
         })
     }
     render () {
