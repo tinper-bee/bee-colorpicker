@@ -2251,8 +2251,12 @@
   background: #f7f9fb; }
 
 .u-colorpicker-select-option .option-overview {
+  float: left;
   width: 28px;
   height: 28px;
   margin-right: 12px;
-  border-radius: 3px;
-  display: inline-block; }
+  border-radius: 3px; }
+
+.u-colorpicker-select-option span {
+  float: left;
+  line-height: 28px; }

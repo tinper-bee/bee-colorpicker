@@ -83,17 +83,22 @@
     }
     &-modal.u-modal{
         .u-modal-body{
-            // height: 350px;
             padding: 0;
             border-bottom: 1px solid #DDE1EC;
             background: #f7f9fb;
         }
     }
-    &-select-option .option-overview{
-        width: 28px;
-        height: 28px;
-        margin-right: 12px;
-        border-radius: $border-radius-base;
-        display: inline-block;
+    &-select-option {
+        .option-overview{
+            float: left;
+            width: 28px;
+            height: 28px;
+            margin-right: 12px;
+            border-radius: $border-radius-base;
+        }
+        span{
+            float: left;
+            line-height: 28px;
+        }
     }
 }

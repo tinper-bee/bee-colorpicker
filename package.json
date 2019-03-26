@@ -38,7 +38,6 @@
   },
   "dependencies": {
     "babel-runtime": "^6.23.0",
-    "bee-button": "latest",
     "bee-form": "latest",
     "bee-form-control": "latest",
     "bee-icon": "latest",
@@ -59,7 +58,9 @@
     "es5-shim": "~4.1.10",
     "bee-panel": "latest",
     "bee-layout": "latest",
-    "bee-button": "latest"
+    "bee-button": "latest",
+    "bee-clipboard": "latest",
+    "bee-drawer": "latest"
   },
   "peerDependencies": {
     "react": ">= 15.3.0",

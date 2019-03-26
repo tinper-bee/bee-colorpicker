@@ -14,6 +14,10 @@ var _propTypes = require('prop-types');
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
+var _classnames = require('classnames');
+
+var _classnames2 = _interopRequireDefault(_classnames);
+
 var _beeForm = require('bee-form');
 
 var _beeForm2 = _interopRequireDefault(_beeForm);
@@ -67,6 +71,7 @@ var propTypes = {
     clsPrefix: _propTypes2["default"].string,
     value: _propTypes2["default"].string,
     label: _propTypes2["default"].string,
+    className: _propTypes2["default"].string,
     required: _propTypes2["default"].bool,
     onChange: _propTypes2["default"].func
 };
@@ -128,8 +133,8 @@ var ColorPicker = function (_Component) {
             _colors2["default"].map(function (item) {
                 opts.push(_react2["default"].createElement(
                     Option,
-                    { key: item.key, value: item.key, className: clsPrefix + '-select-option' },
-                    _react2["default"].createElement('span', { className: 'option-overview bg-' + item.key + '-600' }),
+                    { key: item.key, value: item.key, className: clsPrefix + '-select-option clearfix' },
+                    _react2["default"].createElement('div', { className: 'option-overview bg-' + item.key + '-600' }),
                     _react2["default"].createElement(
                         'span',
                         null,
@@ -237,7 +242,8 @@ var ColorPicker = function (_Component) {
             value = _props.value,
             label = _props.label,
             required = _props.required,
-            others = _objectWithoutProperties(_props, ['clsPrefix', 'onChange', 'value', 'label', 'required']);
+            className = _props.className,
+            others = _objectWithoutProperties(_props, ['clsPrefix', 'onChange', 'value', 'label', 'required', 'className']);
 
         var _state = this.state,
             selectedColor = _state.selectedColor,
@@ -261,7 +267,7 @@ var ColorPicker = function (_Component) {
         });
         return _react2["default"].createElement(
             'div',
-            { className: clsPrefix },
+            { className: (0, _classnames2["default"])(clsPrefix, className) },
             _react2["default"].createElement(
                 FormItem,
                 { className: clsPrefix + '-form' },
@@ -323,7 +329,6 @@ var ColorPicker = function (_Component) {
                         _react2["default"].createElement(
                             _beeSelect2["default"],
                             {
-                                open: true,
                                 defaultValue: 'red',
                                 style: { width: 200 },
                                 onChange: this.handleSelectChange

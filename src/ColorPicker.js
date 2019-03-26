@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
 import Form from 'bee-form';
 import FormControl from 'bee-form-control';
 import Label from 'bee-label';
@@ -16,6 +17,7 @@ const propTypes = {
     clsPrefix: PropTypes.string,
     value: PropTypes.string,
     label: PropTypes.string,
+    className: PropTypes.string,
     required: PropTypes.bool,
     onChange: PropTypes.func,
 };
@@ -98,8 +100,8 @@ class ColorPicker extends Component {
         const { clsPrefix } = this.props;
         let opts = [];
         colors.map((item) => {
-            opts.push(<Option key={item.key} value={item.key} className={`${clsPrefix}-select-option`}>
-                        <span className={`option-overview bg-${item.key}-600`}></span>
+            opts.push(<Option key={item.key} value={item.key} className={`${clsPrefix}-select-option clearfix`}>
+                        <div className={`option-overview bg-${item.key}-600`}></div>
                         <span>{item.name}</span>
                     </Option>)
         })
@@ -150,6 +152,7 @@ class ColorPicker extends Component {
             value,
             label,
             required,
+            className,
             ...others
         } = this.props;
         const { 
@@ -171,7 +174,7 @@ class ColorPicker extends Component {
             return this.ownerDocument.defaultView.getComputedStyle(this, null); 
         });
         return(
-            <div className={clsPrefix}>
+            <div className={classnames(clsPrefix,className)}>
                 <FormItem className={`${clsPrefix}-form`}>
                     <Label>
                         {required ? <Icon type="uf-mi" className='mast'></Icon> : "" }
@@ -212,7 +215,6 @@ class ColorPicker extends Component {
                                 <div className={`${clsPrefix}-color-preview-demo bg-${selectedColor}-600`}></div>
                             </div>
                             <Select
-                                open={true}
                                 defaultValue="red"
                                 style={{ width: 200 }}
                                 onChange={this.handleSelectChange}

@@ -21,6 +21,7 @@ class Demo1 extends Component {
     render () {
         return (
             <ColorPicker 
+                className="demo2"
                 value={this.state.value} 
                 onChange={this.handleChange}
                 label="颜色"
