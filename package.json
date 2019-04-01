@@ -48,19 +48,20 @@
         "tinper-bee-core": "latest"
     },
     "devDependencies": {
-        "chai": "^3.5.0",
-        "enzyme": "^2.4.1",
-        "react": "15.3.2",
-        "react-addons-test-utils": "15.3.2",
-        "react-dom": "15.3.2",
-        "console-polyfill": "~0.2.1",
-        "cz-conventional-changelog": "^2.1.0",
-        "es5-shim": "~4.1.10",
-        "bee-panel": "latest",
-        "bee-layout": "latest",
         "bee-button": "latest",
         "bee-clipboard": "latest",
-        "bee-drawer": "latest"
+        "bee-drawer": "latest",
+        "bee-layout": "latest",
+        "bee-panel": "latest",
+        "chai": "^3.5.0",
+        "console-polyfill": "~0.2.1",
+        "cz-conventional-changelog": "^2.1.0",
+        "enzyme": "^2.4.1",
+        "es5-shim": "~4.1.10",
+        "node-sass": "^4.11.0",
+        "react": "15.3.2",
+        "react-addons-test-utils": "15.3.2",
+        "react-dom": "15.3.2"
     },
     "peerDependencies": {
         "react": ">= 15.3.0",
