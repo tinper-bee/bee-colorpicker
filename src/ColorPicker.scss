@@ -1,21 +1,13 @@
 @import "../node_modules/tinper-bee-core/scss/minxin-variables";
 @import "../node_modules/tinper-bee-core/scss/minxin-mixins";
 @import "../node_modules/tinper-bee-core/scss/minxin-palette";
+// @import "../node_modules/bee-modal/src/Modal.scss";
+// @import "../node_modules/bee-form-control/src/FormControl.scss";
+// @import "../node_modules/bee-form/src/Form.scss";
+// @import "../node_modules/bee-layout/src/Layout.scss";
 
 .u-colorpicker{
     &-form{
-        // position: relative;
-        // width: 450px;
-        // display: flex;
-        // .u-label{
-        //     min-width: 100px;
-        //     line-height: 32px;
-        //     text-align: right;
-        //     padding-right: 12px;
-        //     .mast{
-        //         color: red;
-        //     }
-        // }
         span{
             position: relative;
         }
@@ -42,47 +34,66 @@
         border-bottom: 1px solid #DDE1EC;
     }
     &-panel-content{
-        height: 300px;
-        padding: 15px 0;
+        padding: 15px;
     }
     &-color-preview{
         &-demo{
-            width: 28px;
-            height: 28px;
-            margin-right: 12px;
+            width: 32px;
+            height: 32px;
+            margin-right: 15px;
             border-radius: $border-radius-base;
         }
     }
     &-panel-color-plate{
         li{
             float: left;
-            width: 75px;
-            height: 75px;
-            margin: 0 8px 8px 0; 
+            width: 55px;
+            height: 55px;
+            margin: 0 6px 6px 0; 
             background: $brand-primary;
             border-radius: $border-radius-base;
             box-shadow:0px 2px 4px 0px rgba(47,47,48,0.2);
             text-align: center;
-            line-height: 75px;
+            line-height: 55px;
             cursor: pointer;
             &:hover{
-                // box-shadow: 0 2px 7px rgba(0, 0, 0, 0.45);
                 box-shadow: 0px 2px 4px 0px rgba(47,47,48,0.45);
             }
             .uf{
-                color: #fff;
+                &.dark-contrast{
+                    color: #fff;
+                }
+                &.light-contrast{
+                    color: #505F79;
+                }
             }
         }
     }
     &-panel-color-info{
+        font-size: 12px;
         .selected-color{
-            width: 280px;
-            height: 100px;
+            width: 216px;
+            height: 77px;
             border-radius: $border-radius-base;
         }
         .u-label{
-            line-height: 30px;
-            color: #424242;
+            display: inline-block;
+            min-width: 50px;
+            text-align: right;
+            line-height: 26px;
+            color: #212121;
+            font-size: 12px;
+        }
+        .u-form-item {
+            padding: 0;
+            min-height: 26px;
+            .u-label{
+                min-width: 50px;
+                display: inline;
+            }
+            .u-form-control{
+                width: 80px;
+            }
         }
     }
     &-modal.u-modal{
