@@ -528,7 +528,7 @@ var ColorPicker = function (_Component) {
                             null,
                             _react2["default"].createElement(
                                 _beeLayout.Col,
-                                { md: 7, xs: 7, sm: 7 },
+                                { md: 7, xs: 7, sm: 7, className: 'col-7' },
                                 _react2["default"].createElement(
                                     'ul',
                                     { className: clsPrefix + '-panel-color-plate clearfix' },
@@ -537,7 +537,7 @@ var ColorPicker = function (_Component) {
                             ),
                             _react2["default"].createElement(
                                 _beeLayout.Col,
-                                { md: 5, xs: 5, sm: 5 },
+                                { md: 5, xs: 5, sm: 5, className: 'col-5' },
                                 _react2["default"].createElement(
                                     'div',
                                     { className: clsPrefix + '-panel-color-info' },

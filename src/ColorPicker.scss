@@ -30,7 +30,14 @@
         border-bottom: 1px solid #DDE1EC;
     }
     &-panel-content{
+        height: auto;
         padding: 15px;
+        .u-row{
+            margin: 0;
+        }
+        .col-7,.col-5{
+            padding: 0;
+        }
     }
     &-color-preview{
         &-demo{
@@ -67,6 +74,7 @@
     }
     &-panel-color-info{
         font-size: 12px;
+        color: #212121;
         .selected-color{
             width: 216px;
             height: 77px;
@@ -89,6 +97,7 @@
             }
             .u-form-control{
                 width: 80px;
+                min-width: auto;
             }
         }
     }

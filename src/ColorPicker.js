@@ -388,12 +388,12 @@ class ColorPicker extends Component {
                         </div>
                         <div className={`${clsPrefix}-panel-content`}>
                             <Row>
-                                <Col md={7} xs={7} sm={7}>
+                                <Col md={7} xs={7} sm={7} className="col-7">
                                     <ul className={`${clsPrefix}-panel-color-plate clearfix`}>
                                         {this.renderColorPlate(selectedColor)}
                                     </ul>
                                 </Col>
-                                <Col md={5} xs={5} sm={5}>
+                                <Col md={5} xs={5} sm={5} className="col-5">
                                     <div className={`${clsPrefix}-panel-color-info`}>
                                         <div className={`selected-color bg-${selectedColor}-${selectedScale}`}></div>
                                         <ul>

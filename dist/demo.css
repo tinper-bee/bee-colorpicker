@@ -2206,7 +2206,12 @@
   border-bottom: 1px solid #DDE1EC; }
 
 .u-colorpicker-panel-content {
+  height: auto;
   padding: 15px; }
+  .u-colorpicker-panel-content .u-row {
+    margin: 0; }
+  .u-colorpicker-panel-content .col-7, .u-colorpicker-panel-content .col-5 {
+    padding: 0; }
 
 .u-colorpicker-color-preview-demo {
   width: 32px;
@@ -2233,7 +2238,8 @@
     color: #505F79; }
 
 .u-colorpicker-panel-color-info {
-  font-size: 12px; }
+  font-size: 12px;
+  color: #212121; }
   .u-colorpicker-panel-color-info .selected-color {
     width: 216px;
     height: 77px;
@@ -2252,7 +2258,8 @@
       min-width: 50px;
       display: inline; }
     .u-colorpicker-panel-color-info .u-form-item .u-form-control {
-      width: 80px; }
+      width: 80px;
+      min-width: auto; }
 
 .u-colorpicker-modal.u-modal .u-modal-body {
   padding: 0;
