@@ -381,7 +381,8 @@ class ColorPicker extends Component {
                             // }) }
                         />
                         <div 
-                            className={`${clsPrefix}-form-color-demo bg-${selectedColor}-${selectedScale}`} 
+                            style={{background:formValue}}
+                            className={`${clsPrefix}-form-color-demo`} 
                             onClick={ this.handleClick }>
                         </div>
                     </span>
