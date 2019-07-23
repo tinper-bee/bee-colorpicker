@@ -30,6 +30,9 @@ import 'bee-colorpicker/build/ColorPicker.css';
 |placeholder|input中的提示信息|string|-|
 |onChange|input值发生改变触发的回调|func|-|
 |autoCalculate|根据选中的颜色自动计算比其 浅一色度/深一色度 的色值|func|-|
+|title|自定义标题|string|-|
+|cacelBtn|自定义取消按钮文字|string|-|
+|confirmBtn|自定义确认按钮提示|string|-|
 
 ## 注意事项
 
