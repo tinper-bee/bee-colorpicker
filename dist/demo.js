@@ -80,7 +80,7 @@
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : _defaults(subClass, superClass); }
 	
-	var Demo1 = __webpack_require__(506);var Demo2 = __webpack_require__(507);var Demo3 = __webpack_require__(508);var Demo4 = __webpack_require__(509);var Demo5 = __webpack_require__(510);var Demo6 = __webpack_require__(511);var DemoArray = [{ "example": _react2['default'].createElement(Demo1, null), "title": " 取色板", "code": "/**\n*\n* @title 取色板\n* @description 提供预制色板的取色板组件\n*\n*/\nimport React, { Component } from 'react';\nimport { ColorPicker } from 'tinper-bee';\n\n\nclass Demo1 extends Component {\n    state = {\n        value : \"#E14C46\"\n    }\n\n    handleChange = (v) => {\n        console.log(\"选择的色彩信息 ：\" , v);\n        this.setState({\n            value: v.hex || ''\n        })\n    }\n    render () {\n        return (\n            <ColorPicker \n                label=\"颜色\"\n                placeholder=\"请输入十六进制色值\"\n                value={this.state.value} \n                onChange={this.handleChange}\n            />\n        )\n    }\n}\nexport default Demo1", "desc": " 提供预制色板的取色板组件" }, { "example": _react2['default'].createElement(Demo2, null), "title": " 设置必输项", "code": "/**\n*\n* @title 设置必输项\n* @description `required`参数设置是否必填\n*\n*/\nimport React, { Component } from 'react';\nimport { ColorPicker } from 'tinper-bee';\n\n\nclass Demo2 extends Component {\n    state = {\n        value : \"#E14C46\"\n    }\n\n    handleChange = (v) => {\n        console.log(\"选择的色彩信息 ：\" , v);\n        this.setState({\n            value: v.hex || ''\n        })\n    }\n    render () {\n        return (\n            <ColorPicker \n                className=\"demo2\"\n                placeholder=\"请输入十六进制色值\"\n                value={this.state.value} \n                onChange={this.handleChange}\n                label=\"颜色\"\n                required={true}\n            />\n        )\n    }\n}\nexport default Demo2", "desc": " `required`参数设置是否必填" }, { "example": _react2['default'].createElement(Demo3, null), "title": " 自动计算色值", "code": "/**\n*\n* @title 自动计算色值\n* @description 根据选中的颜色自动计算比其 浅一色度/深一色度 的色值，可应用于选择主色后，自动计算hover和active状态的色值\n*\n*/\nimport React, { Component } from 'react';\nimport { ColorPicker } from 'tinper-bee';\n\n\nclass Demo3 extends Component {\n    autoCalculate = (obj) => {\n        console.log(\"自动计算的色值对象 ：\",obj);\n    }\n\n    handleChange = (v) => {\n        console.log(\"选择的色彩信息 ：\" , v);\n    }\n    render () {\n        return (\n            <ColorPicker\n                className=\"demo2\"\n                label=\"颜色\"\n                placeholder=\"请输入十六进制色值\" \n                autoCalculate={this.autoCalculate}\n                onChange={this.handleChange}\n            />\n        )\n    }\n}\nexport default Demo3", "desc": " 根据选中的颜色自动计算比其 浅一色度/深一色度 的色值，可应用于选择主色后，自动计算hover和active状态的色值" }, { "example": _react2['default'].createElement(Demo4, null), "title": " 不可用状态", "code": "/**\n*\n* @title 不可用状态\n* @description 添加 disabled 属性即可让取色板处于不可用状态\n*\n*/\nimport React, { Component } from 'react';\nimport { ColorPicker } from 'tinper-bee';\n\n\nclass Demo4 extends Component {\n    state = {\n        value : \"#E14C46\"\n    }\n\n    handleChange = (v) => {\n        console.log(\"选择的色彩信息 ：\" , v);\n        this.setState({\n            value: v.hex || ''\n        })\n    }\n    render () {\n        return (\n            <ColorPicker \n                disabled\n                label=\"颜色\"\n                placeholder=\"请输入十六进制色值\"\n                value={this.state.value} \n                onChange={this.handleChange}\n            />\n        )\n    }\n}\nexport default Demo4", "desc": " 添加 disabled 属性即可让取色板处于不可用状态" }, { "example": _react2['default'].createElement(Demo5, null), "title": " 禁用透明度", "code": "/**\r\n*\r\n* @title 禁用透明度\r\n* @description 添加 disabledAlpha 属性可禁用透明度设置\r\n*\r\n*/\r\nimport React, { Component } from 'react';\nimport { ColorPicker } from 'tinper-bee';\r\n\r\n\r\nclass Demo5 extends Component {\r\n    state = {\r\n        value : \"#E14C46\"\r\n    }\r\n\r\n    handleChange = (v) => {\r\n        console.log(\"选择的色彩信息 ：\" , v);\r\n        this.setState({\r\n            value: v.hex || ''\r\n        })\r\n    }\r\n    render () {\r\n        return (\r\n            <ColorPicker \r\n                disabledAlpha\r\n                label=\"颜色\"\r\n                placeholder=\"请输入十六进制色值\"\r\n                value={this.state.value} \r\n                onChange={this.handleChange}\r\n            />\r\n        )\r\n    }\r\n}\r\nexport default Demo5", "desc": " 添加 disabledAlpha 属性可禁用透明度设置" }, { "example": _react2['default'].createElement(Demo6, null), "title": " 自定义文字", "code": "/**\n *\n * @title 自定义文字\n * @description 提供自定义文字的取色板组件\n *\n */\nimport React, { Component } from 'react';\nimport { ColorPicker } from 'tinper-bee';\n\n\nclass Demo6 extends Component {\n    state = {\n        value : \"#E14C46\",\n    }\n\n    handleChange = (v) => {\n        console.log(\"选择的色彩信息 ：\" , v);\n        this.setState({\n            value: v.hex || ''\n        })\n    }\n    render () {\n        return (\n            <ColorPicker\n                label=\"颜色\"\n                placeholder=\"请输入十六进制色值\"\n                value={this.state.value}\n                title='自定义标题'\n                cacelBtn='自定义取消按钮文字'\n                confirmBtn='自定义确认按钮提示'\n                onChange={this.handleChange}\n            />\n        )\n    }\n}\nexport default Demo6", "desc": " 提供自定义文字的取色板组件" }];
+	var Demo1 = __webpack_require__(506);var Demo2 = __webpack_require__(507);var Demo3 = __webpack_require__(508);var Demo4 = __webpack_require__(509);var Demo5 = __webpack_require__(510);var Demo6 = __webpack_require__(511);var Demo7 = __webpack_require__(512);var DemoArray = [{ "example": _react2['default'].createElement(Demo1, null), "title": " 取色板", "code": "/**\r\n*\r\n* @title 取色板\r\n* @description 提供预制色板的取色板组件\r\n*\r\n*/\r\nimport React, { Component } from 'react';\nimport {  } from 'tinper-bee';\r\nimport ColorPicker from \"tinper-bee/lib/src\";;\r\n\r\nclass Demo1 extends Component {\r\n    state = {\r\n        value : \"#E14C46\"\r\n    }\r\n\r\n    handleChange = (v) => {\r\n        console.log(\"选择的色彩信息 ：\" , v);\r\n        this.setState({\r\n            value: v.hex || ''\r\n        })\r\n    }\r\n    render () {\r\n        return (\r\n            <ColorPicker \r\n                label=\"颜色\"\r\n                placeholder=\"请输入十六进制色值\"\r\n                value={this.state.value} \r\n                onChange={this.handleChange}\r\n            />\r\n        )\r\n    }\r\n}\r\n", "desc": " 提供预制色板的取色板组件" }, { "example": _react2['default'].createElement(Demo2, null), "title": " 设置必输项", "code": "/**\r\n*\r\n* @title 设置必输项\r\n* @description `required`参数设置是否必填\r\n*\r\n*/\r\nimport React, { Component } from 'react';\nimport {  } from 'tinper-bee';\r\nimport ColorPicker from \"tinper-bee/lib/src\";;\r\n\r\nclass Demo2 extends Component {\r\n    state = {\r\n        value : \"#E14C46\"\r\n    }\r\n\r\n    handleChange = (v) => {\r\n        console.log(\"选择的色彩信息 ：\" , v);\r\n        this.setState({\r\n            value: v.hex || ''\r\n        })\r\n    }\r\n    render () {\r\n        return (\r\n            <ColorPicker \r\n                className=\"demo2\"\r\n                placeholder=\"请输入十六进制色值\"\r\n                value={this.state.value} \r\n                onChange={this.handleChange}\r\n                label=\"颜色\"\r\n                required={true}\r\n            />\r\n        )\r\n    }\r\n}\r\n", "desc": " `required`参数设置是否必填" }, { "example": _react2['default'].createElement(Demo3, null), "title": " 自动计算色值", "code": "/**\r\n*\r\n* @title 自动计算色值\r\n* @description 根据选中的颜色自动计算比其 浅一色度/深一色度 的色值，可应用于选择主色后，自动计算hover和active状态的色值\r\n*\r\n*/\r\nimport React, { Component } from 'react';\nimport {  } from 'tinper-bee';\r\nimport ColorPicker from \"tinper-bee/lib/src\";;\r\n\r\nclass Demo3 extends Component {\r\n    autoCalculate = (obj) => {\r\n        console.log(\"自动计算的色值对象 ：\",obj);\r\n    }\r\n\r\n    handleChange = (v) => {\r\n        console.log(\"选择的色彩信息 ：\" , v);\r\n    }\r\n    render () {\r\n        return (\r\n            <ColorPicker\r\n                className=\"demo2\"\r\n                label=\"颜色\"\r\n                placeholder=\"请输入十六进制色值\" \r\n                autoCalculate={this.autoCalculate}\r\n                onChange={this.handleChange}\r\n            />\r\n        )\r\n    }\r\n}\r\n", "desc": " 根据选中的颜色自动计算比其 浅一色度/深一色度 的色值，可应用于选择主色后，自动计算hover和active状态的色值" }, { "example": _react2['default'].createElement(Demo4, null), "title": " 不可用状态", "code": "/**\r\n*\r\n* @title 不可用状态\r\n* @description 添加 disabled 属性即可让取色板处于不可用状态\r\n*\r\n*/\r\nimport React, { Component } from 'react';\nimport {  } from 'tinper-bee';\r\nimport ColorPicker from \"tinper-bee/lib/src\";;\r\n\r\nclass Demo4 extends Component {\r\n    state = {\r\n        value : \"#E14C46\"\r\n    }\r\n\r\n    handleChange = (v) => {\r\n        console.log(\"选择的色彩信息 ：\" , v);\r\n        this.setState({\r\n            value: v.hex || ''\r\n        })\r\n    }\r\n    render () {\r\n        return (\r\n            <ColorPicker \r\n                disabled\r\n                label=\"颜色\"\r\n                placeholder=\"请输入十六进制色值\"\r\n                value={this.state.value} \r\n                onChange={this.handleChange}\r\n            />\r\n        )\r\n    }\r\n}\r\n", "desc": " 添加 disabled 属性即可让取色板处于不可用状态" }, { "example": _react2['default'].createElement(Demo5, null), "title": " 禁用透明度", "code": "/**\r\n*\r\n* @title 禁用透明度\r\n* @description 添加 disabledAlpha 属性可禁用透明度设置\r\n*\r\n*/\r\nimport React, { Component } from 'react';\nimport {  } from 'tinper-bee';\r\nimport ColorPicker from \"tinper-bee/lib/src\";;\r\n\r\nclass Demo5 extends Component {\r\n    state = {\r\n        value : \"#E14C46\"\r\n    }\r\n\r\n    handleChange = (v) => {\r\n        console.log(\"选择的色彩信息 ：\" , v);\r\n        this.setState({\r\n            value: v.hex || ''\r\n        })\r\n    }\r\n    render () {\r\n        return (\r\n            <ColorPicker \r\n                disabledAlpha\r\n                label=\"颜色\"\r\n                placeholder=\"请输入十六进制色值\"\r\n                value={this.state.value} \r\n                onChange={this.handleChange}\r\n            />\r\n        )\r\n    }\r\n}\r\n", "desc": " 添加 disabledAlpha 属性可禁用透明度设置" }, { "example": _react2['default'].createElement(Demo6, null), "title": " 自定义文字", "code": "/**\r\n *\r\n * @title 自定义文字\r\n * @description 提供自定义文字的取色板组件\r\n *\r\n */\r\nimport React, { Component } from 'react';\nimport {  } from 'tinper-bee';\r\nimport ColorPicker from \"tinper-bee/lib/src\";;\r\n\r\nclass Demo6 extends Component {\r\n    state = {\r\n        value : \"#E14C46\",\r\n    }\r\n\r\n    handleChange = (v) => {\r\n        console.log(\"选择的色彩信息 ：\" , v);\r\n        this.setState({\r\n            value: v.hex || ''\r\n        })\r\n    }\r\n    render () {\r\n        return (\r\n            <ColorPicker\r\n                label=\"颜色\"\r\n                placeholder=\"请输入十六进制色值\"\r\n                value={this.state.value}\r\n                title='自定义标题'\r\n                cacelBtn='自定义取消按钮文字'\r\n                confirmBtn='自定义确认按钮提示'\r\n                onChange={this.handleChange}\r\n            />\r\n        )\r\n    }\r\n}\r\n", "desc": " 提供自定义文字的取色板组件" }, { "example": _react2['default'].createElement(Demo7, null), "title": " 参数区域是否展示", "code": "/**\r\n *\r\n * @title 参数区域是否展示\r\n * @description 自定义是否隐藏普通用户难以理解的参数区域，有利于界面友好。\r\n *\r\n */\r\nimport React, { Component } from 'react';\nimport {  } from 'tinper-bee';\r\nimport ColorPicker from \"tinper-bee/lib/src\";;\r\n\r\nclass Demo1 extends Component {\r\n  state = {\r\n    value : \"#E14C46\"\r\n  }\r\n\r\n  handleChange = (v) => {\r\n    console.log(\"选择的色彩信息 ：\" , v);\r\n    this.setState({\r\n      value: v.hex || ''\r\n    })\r\n  }\r\n  render () {\r\n    return (\r\n      <ColorPicker\r\n        label=\"颜色\"\r\n        placeholder=\"请输入十六进制色值\"\r\n        value={this.state.value}\r\n        onChange={this.handleChange}\r\n        isParameterArea={false}\r\n        modalProps={{draggable:true}}\r\n      />\r\n    )\r\n  }\r\n}\r\n\r\n", "desc": " 自定义是否隐藏普通用户难以理解的参数区域，有利于界面友好。" }];
 	
 	var Demo = function (_Component) {
 	    _inherits(Demo, _Component);
@@ -8032,6 +8032,10 @@
 	
 	var _reactTransitionGroup = __webpack_require__(86);
 	
+	var _beeIcon = __webpack_require__(78);
+	
+	var _beeIcon2 = _interopRequireDefault(_beeIcon);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 	
 	function _defaults(obj, defaults) { var keys = Object.getOwnPropertyNames(defaults); for (var i = 0; i < keys.length; i++) { var key = keys[i]; var value = Object.getOwnPropertyDescriptor(defaults, key); if (value && value.configurable && obj[key] === undefined) { Object.defineProperty(obj, key, value); } } return obj; }
@@ -8055,7 +8059,8 @@
 		width: _propTypes2["default"].oneOfType([_propTypes2["default"].string, _propTypes2["default"].number]),
 		height: _propTypes2["default"].oneOfType([_propTypes2["default"].string, _propTypes2["default"].number]),
 		destroyOnClose: _propTypes2["default"].bool,
-		container: _propTypes2["default"].string
+		container: _propTypes2["default"].string,
+		closeIcon: _propTypes2["default"].node
 	};
 	
 	var defaultProps = {
@@ -8069,10 +8074,11 @@
 		width: 'auto',
 		height: 'auto',
 		destroyOnClose: false,
-		container: 'body'
+		container: 'body',
+		closeIcon: null
 	};
 	
-	var DrawerContext = _react2["default"].createContext(null);
+	var DrawerContext = _react2["default"].createContext && _react2["default"].createContext(null);
 	
 	var Drawer = function (_Component) {
 		_inherits(Drawer, _Component);
@@ -8157,32 +8163,35 @@
 		};
 	
 		Drawer.prototype.renderClose = function renderClose() {
-			var showClose = this.props.showClose;
+			var _props2 = this.props,
+			    showClose = _props2.showClose,
+			    closeIcon = _props2.closeIcon;
 	
+			var closeDom = closeIcon || _react2["default"].createElement(_beeIcon2["default"], { type: 'uf-close' });
 			return showClose ? _react2["default"].createElement(
-				'i',
+				'span',
 				{ className: 'drawer-close', onClick: this.fCloseClick },
-				'\xD7'
+				closeDom
 			) : null;
 		};
 	
 		Drawer.prototype.renderBody = function renderBody() {
 			var _this2 = this;
 	
-			var _props2 = this.props,
-			    destroyOnClose = _props2.destroyOnClose,
-			    show = _props2.show;
+			var _props3 = this.props,
+			    destroyOnClose = _props3.destroyOnClose,
+			    show = _props3.show;
 	
 			if (destroyOnClose && !show) {
 				return null;
 			}
-			var _props3 = this.props,
-			    hasHeader = _props3.hasHeader,
-			    title = _props3.title,
-			    children = _props3.children,
-			    width = _props3.width,
-			    height = _props3.height,
-			    placement = _props3.placement;
+			var _props4 = this.props,
+			    hasHeader = _props4.hasHeader,
+			    title = _props4.title,
+			    children = _props4.children,
+			    width = _props4.width,
+			    height = _props4.height,
+			    placement = _props4.placement;
 			var push = this.state.push;
 			//抽屉类
 	
@@ -8259,10 +8268,10 @@
 		};
 	
 		Drawer.prototype.renderAll = function renderAll(value) {
-			var _props4 = this.props,
-			    show = _props4.show,
-			    className = _props4.className,
-			    zIndex = _props4.zIndex;
+			var _props5 = this.props,
+			    show = _props5.show,
+			    className = _props5.className,
+			    zIndex = _props5.zIndex;
 			//容器类
 	
 			var drawercClass = (0, _classnames2["default"])('drawerc', className);
@@ -36996,8 +37005,6 @@
 	
 	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 	
-	var _defaultProps;
-	
 	var _react = __webpack_require__(1);
 	
 	var _react2 = _interopRequireDefault(_react);
@@ -37060,8 +37067,6 @@
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : _defaults(subClass, superClass); }
 	
-	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-	
 	var FormItem = _beeForm2['default'].FormItem;
 	var Option = _beeSelect2['default'].Option;
 	
@@ -37078,18 +37083,25 @@
 	    onChange: _propTypes2['default'].func,
 	    title: _propTypes2['default'].string,
 	    cacelBtn: _propTypes2['default'].string,
-	    confirmBtn: _propTypes2['default'].string
+	    confirmBtn: _propTypes2['default'].string,
+	    isParameterArea: _propTypes2['default'].bool,
+	    modalProps: _propTypes2['default'].object
 	};
-	var defaultProps = (_defaultProps = {
+	var defaultProps = {
 	    clsPrefix: "u-colorpicker",
 	    value: "",
 	    label: "",
 	    placeholder: "",
 	    required: false,
-	    autoCalculate: false,
 	    disabled: false,
-	    disabledAlpha: false
-	}, _defineProperty(_defaultProps, 'autoCalculate', function autoCalculate() {}), _defineProperty(_defaultProps, 'onChange', function onChange() {}), _defineProperty(_defaultProps, 'title', '取色板'), _defineProperty(_defaultProps, 'cacelBtn', '取消'), _defineProperty(_defaultProps, 'confirmBtn', '确认'), _defaultProps);
+	    disabledAlpha: false,
+	    autoCalculate: function autoCalculate() {},
+	    onChange: function onChange() {},
+	    title: '取色板',
+	    cacelBtn: '取消',
+	    confirmBtn: '确认',
+	    isParameterArea: true
+	};
 	
 	var initRgb = _colors2['default']['red'].rgbArr[6] ? 'rgb(' + _colors2['default']['red'].rgbArr[6] + ')' : '';
 	
@@ -37457,7 +37469,8 @@
 	            className = _props.className,
 	            disabled = _props.disabled,
 	            disabledAlpha = _props.disabledAlpha,
-	            others = _objectWithoutProperties(_props, ['clsPrefix', 'onChange', 'value', 'label', 'required', 'placeholder', 'className', 'disabled', 'disabledAlpha']);
+	            isParameterArea = _props.isParameterArea,
+	            others = _objectWithoutProperties(_props, ['clsPrefix', 'onChange', 'value', 'label', 'required', 'placeholder', 'className', 'disabled', 'disabledAlpha', 'isParameterArea']);
 	
 	        var _state = this.state,
 	            selectedColor = _state.selectedColor,
@@ -37514,12 +37527,13 @@
 	            ),
 	            _react2['default'].createElement(
 	                _beeModal2['default'],
-	                {
-	                    width: '600',
+	                _extends({
+	                    width: isParameterArea ? '600' : '350',
 	                    className: clsPrefix + '-modal',
 	                    show: this.state.displayColorPicker,
 	                    onHide: this.handleClose,
-	                    backdropClosable: false },
+	                    backdropClosable: false
+	                }, this.props.modalProps),
 	                _react2['default'].createElement(
 	                    _beeModal2['default'].Header,
 	                    { closeButton: true },
@@ -37558,14 +37572,14 @@
 	                            null,
 	                            _react2['default'].createElement(
 	                                _beeLayout.Col,
-	                                { md: 7, xs: 7, sm: 7, className: 'col-7' },
+	                                { md: 7, xs: 7, sm: 7, style: isParameterArea ? {} : { width: '100%', marginLeft: '10.5px' }, className: 'col-7' },
 	                                _react2['default'].createElement(
 	                                    'ul',
 	                                    { className: clsPrefix + '-panel-color-plate clearfix' },
 	                                    this.renderColorPlate(selectedColor)
 	                                )
 	                            ),
-	                            _react2['default'].createElement(
+	                            isParameterArea && _react2['default'].createElement(
 	                                _beeLayout.Col,
 	                                { md: 5, xs: 5, sm: 5, className: 'col-5' },
 	                                _react2['default'].createElement(
@@ -58351,6 +58365,79 @@
 	}(_react.Component);
 	
 	exports['default'] = Demo6;
+	module.exports = exports['default'];
+
+/***/ }),
+/* 512 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _src = __webpack_require__(280);
+	
+	var _src2 = _interopRequireDefault(_src);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+	
+	function _defaults(obj, defaults) { var keys = Object.getOwnPropertyNames(defaults); for (var i = 0; i < keys.length; i++) { var key = keys[i]; var value = Object.getOwnPropertyDescriptor(defaults, key); if (value && value.configurable && obj[key] === undefined) { Object.defineProperty(obj, key, value); } } return obj; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : _defaults(subClass, superClass); } /**
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @title 参数区域是否展示
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @description 自定义是否隐藏普通用户难以理解的参数区域，有利于界面友好。
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
+	
+	
+	var Demo1 = function (_Component) {
+	  _inherits(Demo1, _Component);
+	
+	  function Demo1() {
+	    var _temp, _this, _ret;
+	
+	    _classCallCheck(this, Demo1);
+	
+	    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+	      args[_key] = arguments[_key];
+	    }
+	
+	    return _ret = (_temp = (_this = _possibleConstructorReturn(this, _Component.call.apply(_Component, [this].concat(args))), _this), _this.state = {
+	      value: "#E14C46"
+	    }, _this.handleChange = function (v) {
+	      console.log("选择的色彩信息 ：", v);
+	      _this.setState({
+	        value: v.hex || ''
+	      });
+	    }, _temp), _possibleConstructorReturn(_this, _ret);
+	  }
+	
+	  Demo1.prototype.render = function render() {
+	    return _react2['default'].createElement(_src2['default'], {
+	      label: '\u989C\u8272',
+	      placeholder: '\u8BF7\u8F93\u5165\u5341\u516D\u8FDB\u5236\u8272\u503C',
+	      value: this.state.value,
+	      onChange: this.handleChange,
+	      isParameterArea: false,
+	      modalProps: { draggable: true }
+	    });
+	  };
+	
+	  return Demo1;
+	}(_react.Component);
+	
+	exports['default'] = Demo1;
 	module.exports = exports['default'];
 
 /***/ })
