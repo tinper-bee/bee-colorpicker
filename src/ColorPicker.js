@@ -94,14 +94,13 @@ class ColorPicker extends Component {
 
     // 关闭色板/点击弹框取消按钮
     handleClose = () => {
-        let { selectedColor,selectedScale,selectedRgbValue,selectedHexValue,formValue,alpha } = this.cache;
+        let { selectedColor,selectedScale,selectedRgbValue,selectedHexValue,alpha } = this.cache;
         this.setState({
             displayColorPicker: false,
             selectedColor,
             selectedScale,
             selectedRgbValue,
             selectedHexValue,
-            formValue,
             alpha,
         });
     };
