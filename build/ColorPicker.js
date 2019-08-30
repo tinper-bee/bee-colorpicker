@@ -125,7 +125,6 @@ var ColorPicker = function (_Component) {
                 selectedScale = _this$cache.selectedScale,
                 selectedRgbValue = _this$cache.selectedRgbValue,
                 selectedHexValue = _this$cache.selectedHexValue,
-                formValue = _this$cache.formValue,
                 alpha = _this$cache.alpha;
 
             _this.setState({
@@ -134,7 +133,6 @@ var ColorPicker = function (_Component) {
                 selectedScale: selectedScale,
                 selectedRgbValue: selectedRgbValue,
                 selectedHexValue: selectedHexValue,
-                formValue: formValue,
                 alpha: alpha
             });
         };

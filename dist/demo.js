@@ -37124,7 +37124,6 @@
 	                selectedScale = _this$cache.selectedScale,
 	                selectedRgbValue = _this$cache.selectedRgbValue,
 	                selectedHexValue = _this$cache.selectedHexValue,
-	                formValue = _this$cache.formValue,
 	                alpha = _this$cache.alpha;
 	
 	            _this.setState({
@@ -37133,7 +37132,6 @@
 	                selectedScale: selectedScale,
 	                selectedRgbValue: selectedRgbValue,
 	                selectedHexValue: selectedHexValue,
-	                formValue: formValue,
 	                alpha: alpha
 	            });
 	        };
