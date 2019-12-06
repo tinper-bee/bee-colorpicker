@@ -37,6 +37,7 @@ import 'bee-colorpicker/build/ColorPicker.css';
 |confirmBtn|自定义确认按钮提示|string|-|
 |modalProps|传给内部modal子组件的属性|object|-|
 
+
 ## 注意事项
 
 暂无
